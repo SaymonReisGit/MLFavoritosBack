@@ -1,11 +1,11 @@
 from unicodedata import category
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import List
 
 
 class ProdutoSchema(BaseModel):
     nome: str = "Kit 5 Camisetas Básicas Masculina Dry Fit Lisa Tradicional"
-    observacoes: str = "Camisetas para revenda"
+    observacoes: str = "Insira observações"
     marca: str = "Veronz"
     url_produto: str = "https://produto.mercadolivre.com.br/MLB-2918685347-kit-5-camisetas-basicas-masculina-dry-fit-lisa-tradicional-_JM"
     valor: float = 63.12
@@ -15,15 +15,17 @@ class ProdutoSchema(BaseModel):
     url_imagem: str = "http://http2.mlstatic.com/D_693684-MLB54835234994_042023-I.jpg"
     data_registro: str = "04/07/2024"
 
-
 class ProdutoBuscaSchema(BaseModel):
-    id: int = 1
+    id: str
 
+class ProdutoUpdateSchema(BaseModel):
+    id: int = 1
+    observacoes: str = "Insira observações"
 
 class ProdutoViewSchema(BaseModel):
     id: int = 1
     nome: str = "Kit 5 Camisetas Básicas Masculina Dry Fit Lisa Tradicional"
-    observacoes: str = "Camisetas para revenda"
+    observacoes: str = "Insira observações"
     marca: str = "Veronz"
     url_produto: str = "https://produto.mercadolivre.com.br/MLB-2918685347-kit-5-camisetas-basicas-masculina-dry-fit-lisa-tradicional-_JM"
     valor: float = 63.12
@@ -34,7 +36,6 @@ class ProdutoViewSchema(BaseModel):
     data_registro: str = "04/07/2024"
 
 class ProdutoDelSchema(BaseModel):
-    mesage: str
     id: int
 
 def apresenta_produto(produto: ProdutoViewSchema):

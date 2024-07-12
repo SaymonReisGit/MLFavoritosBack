@@ -8,7 +8,7 @@ from  model import Base
 class Produto(Base):
     __tablename__ = 'produto'
 
-    id = Column("pk_produto", Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     nome = Column(String(200))
     observacoes = Column(String(4000))
     marca = Column(String(200))
@@ -35,7 +35,7 @@ class Produto(Base):
         Cria um Produto
 
         Arguments:
-            nome: nome do troduto,
+            nome: nome do produto,
             observacoes: informações adicionais,
             marca: marca do produto,
             url_produto: url do produto no site Mercado Livre,
